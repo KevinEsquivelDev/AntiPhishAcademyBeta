@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:background="@color/white">
+
+        <!-- Estadísticas de phishing por objetivos -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Estadísticas de phishing por objetivos"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Según los datos del Grupo de trabajo antiphishing (AWPG) publicados en Statista, la cantidad de sitios de phishing únicos detectados en todo el mundo desde el tercer trimestre de 2021 hasta el tercer trimestre de 2022 experimentó un salto de 1,097 millones a 1,270 millones."
+            android:layout_marginBottom="16dp"
+            android:textColor="@color/black" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:src="@drawable/imagen_estadisticas_phishing"
+            android:scaleType="centerCrop"
+            android:layout_marginBottom="16dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Fuente: Statista"
+            android:textStyle="italic"
+            android:layout_marginBottom="16dp"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Hubo un aumento aproximado del 345 % en los sitios únicos de phishing al comienzo de la pandemia de COVID-19, el aumento más significativo en los datos de phishing disponibles."
+            android:layout_marginBottom="16dp"
+            android:textColor="@color/black" />
+
+        <!-- Ataque de Phishing en las empresas -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ataque de Phishing en las empresas"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Según el Informe de investigación de filtración de datos (DBIR) de Verizon de 2021, las aplicaciones web utilizadas con mayor frecuencia por los trabajadores remotos fueron responsables del 90 % de las fugas de datos. Otro estudio del Instituto Ponemon en 2021 mostró que los profesionales de TI creen que es más fácil proteger la información de la empresa cuando el personal está trabajando en la oficina."
+            android:layout_marginBottom="16dp"
+            android:textColor="@color/black" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:src="@drawable/imagen_ataque_phishing_empresas"
+            android:scaleType="centerCrop"
+            android:layout_marginBottom="16dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Fuente: APWG"
+            android:textStyle="italic"
+            android:layout_marginBottom="16dp"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Según las cifras de APWG extraídas de los datos del tercer trimestre de 2022, las instituciones financieras fueron la industria en línea más atacada por los ataques de phishing."
+            android:layout_marginBottom="16dp"
+            android:textColor="@color/black" />
+
+        <!-- Costo del phishing para los consumidores -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Costo del phishing para los consumidores"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="El informe IC3 FBI Crime de 2022 reveló una pérdida de aproximadamente $ 52 millones por estafas de phishing. Y el informe de la FTC de 2022 reveló informes de fraude de 2,4 millones de consumidores en 2022, siendo la estafa más comúnmente denunciada la estafa de impostores."
+            android:layout_marginBottom="16dp"
+            android:textColor="@color/black" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:src="@drawable/imagen_costo_phishing_consumidores"
+            android:scaleType="centerCrop"
+            android:layout_marginBottom="16dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Fuente: Informe IC3 FBI Crime de 2022"
+            android:textStyle="italic"
+            android:layout_marginBottom="16dp"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="El informe Costo de una filtración de datos de IBM encontró que el 60% de las organizaciones estudiadas aumentaron sus precios debido a una filtración. Los consumidores pueden estar pagando un precio más alto por bienes y servicios debido al riesgo de ataques de phishing."
+            android:layout_marginBottom="16dp"
+            android:textColor="@color/black" />
+
+        <!-- El costo de recuperarse de los ataques de Phishing -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="El costo de recuperarse de los ataques de Phishing"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Un ataque de phishing cuesta en promedio 4,91 millones de dólares a las organizaciones que responden. Según el informe de IBM de 2022, los ataques de phishing fueron la segunda fuente más costosa de credenciales comprometidas. Además, este informe encontró que los costos de incumplimiento aumentaron casi un 13 % en los últimos dos años."
+            android:layout_marginBottom="16dp"
+            android:textColor="@color/black" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:src="@drawable/imagen_costo_recuperacion_phishing"
+            android:scaleType="centerCrop"
+            android:layout_marginBottom="16dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Fuente: Cost Of A Data Breach de IBM"
+            android:textStyle="italic"
+            android:layout_marginBottom="16dp"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cada correo electrónico de phishing tarda 27,5 minutos a un costo de $31,32 por mensaje de phishing, como se indica en el Informe de costos comerciales de phishing de 2022."
+            android:layout_marginBottom="16dp"
+            android:textColor="@color/black" />
+
+        <!-- Tipos de Phishing involucrados en incidentes de ciberseguridad -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tipos de Phishing involucrados en incidentes de ciberseguridad"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cofense también confirmó los hallazgos de Symantec con respecto a la capacidad de los atacantes para aprovechar rápidamente los sucesos de actualidad. De hecho, corroboraron que en el 2020 hubo un aumento de ataques de phishing relacionado con la COVID-19, en los que a menudo se ofrecía proporcionar asistencia financiera a los ciudadanos afectados."
+            android:layout_marginBottom="16dp"
+            android:textColor="@color/black" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:src="@drawable/imagen_tipos_phishing"
+            android:scaleType="centerCrop"
+            android:layout_marginBottom="16dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Fuente: Centro de Coordinación de Ciberseguridad del Sector Salud (HC3)"
+            android:textStyle="italic"
+            android:layout_marginBottom="16dp"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="El informe Cost Of A Data Breach de IBM reveló que el costo promedio aumentó a $10,10 millones en 2022. Según este informe, el sector de la salud ha tenido el costo de violación de datos más alto durante doce años consecutivos."
+            android:layout_marginBottom="16dp"
+            android:textColor="@color/black" />
+
+        <!-- Phishing: ¡el gran villano en América Latina! -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Phishing: ¡el gran villano en América Latina!"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="A pesar de la popularidad del malware en la industria de ciberseguridad, la mayor amenaza en América Latina es el phishing, es decir, los mensajes fraudulentos enviados por correo electrónico, SMS y, sobre todo, a través de redes sociales y apps de mensajería como WhatsApp."
+            android:layout_marginBottom="16dp"
+            android:textColor="@color/black" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:src="@drawable/imagen_phishing_america_latina"
+            android:scaleType="centerCrop"
+            android:layout_marginBottom="16dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Fuente: Statista"
+            android:textStyle="italic"
+            android:layout_marginBottom="16dp"
+            android:textColor="@color/black" />
+
+        <!-- El Phishing en Guatemala -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="El Phishing en Guatemala"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Según el observatorio guatemalteco de delitos informáticos, derivado de las medidas de contención por la pandemia COVID-19, las personas estuvieron expuestas a mayores amenazas de cibercrimen al pasar un mayor tiempo en trabajo y educación en línea. Desde el segundo semestre del 2020, se observaron un incremento en las campañas de Phishing muchas de ellas bajo pretextos relacionados al covid-19. Asimismo, también reportan que se incrementaron los intentos de ataque de fuerza bruta y los ciberataques en el segundo trimestre del año 2020."
+            android:layout_marginBottom="16dp"
+            android:textColor="@color/black" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:src="@drawable/imagen_phishing_guatemala"
+            android:scaleType="centerCrop"
+            android:layout_marginBottom="16dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Fuente: USAID Infosegura"
+            android:textStyle="italic"
+            android:layout_marginBottom="16dp"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tomando en cuenta que más de la mitad de los guatemaltecos tienen un celular con posible acceso a internet es importante empezar a dimensionar todos los actos ilegales que se puedan estar cometiendo por el medio tecnológico y de las telecomunicaciones. Derivado a la falta de un marco legal definido la información disponible es limitada, sin embargo, se ha podido recolectar información que da indicios de la problemática."
+            android:layout_marginBottom="16dp"
+            android:textColor="@color/black" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:src="@drawable/imagen_phishing_guatemala2"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Fuente: Banco Interamericano de Desarrollo"
+            android:textStyle="italic"
+            android:layout_marginBottom="16dp"
+            android:textColor="@color/black" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="50dp"/>
+    </LinearLayout>
+</ScrollView>

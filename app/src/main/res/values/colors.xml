@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<color name="black">#FF000000</color>
+<color name="white">#FFFFFFFF</color>
+<!-- PRIMARY COLORS -->
+<color name="dark_primary_color">#252222</color>
+<color name="light_primary_color">#CFD8DC</color>
+<color name="primary_color">#8a8d94</color>
+    <color name="primary_color_information">#44b7be</color>
+    <color name="primary_color_recursos">#66873f</color>
+    <color name="primary_color_curso">#9e1d17</color>
+    <color name="primary_color_estadisitica">#e48826</color>
+    <color name="colorSelected">#1970af</color>
+    <color name="colorUnselected">#42526A</color>
+    <color name="colorOverscroll">#FF4081</color>
+
+<!-- TEXT / ICONS -->
+<color name="text_icons_color">#FFFFFF</color>
+
+<!-- ACCENT COLOR -->
+<color name="accent_color">#1970af</color>
+
+<!-- TEXT COLORS -->
+<color name="primary_text_color">#212121</color>
+<color name="secondary_text_color">#757575</color>
+
+<!-- DIVIDER COLOR -->
+<color name="divider_color">#BDBDBD</color>
+</resources>

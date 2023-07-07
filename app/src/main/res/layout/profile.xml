@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FAFAFA">
+
+    <Button
+        android:id="@+id/back_button"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginStart="10dp"
+        android:background="@drawable/ic_back_arrow"
+        android:backgroundTint="@color/accent_color" />
+
+    <RelativeLayout
+        android:id="@+id/id_portada"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:layout_below="@id/back_button"
+        android:background="@drawable/cortina">
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/informacion"
+        android:layout_width="match_parent"
+        android:layout_height="190dp"
+        android:layout_below="@id/id_portada"
+        android:background="@drawable/card_background"
+        android:elevation="1dp">
+
+
+        <TextView
+            android:id="@+id/nombre_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-medium"
+            android:layout_marginTop="55dp"
+            android:layout_marginStart="20dp"
+            android:textColor="@color/black"
+            android:text="Nombre"
+            android:textSize="28sp" />
+
+        <TextView
+            android:id="@+id/descripcion_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_below="@id/nombre_text"
+            android:textColor="@color/black"
+            android:text="La tierra es un conductor de resonacia acústica."
+            android:textSize="17sp" />
+
+        <Button
+            android:id="@+id/perfil"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_below="@id/descripcion_text"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/custom_button"
+            android:text="Editar perfil"
+            android:textColor="@android:color/white"
+            android:drawableStart="@drawable/ic_edit"
+            android:drawablePadding="8dp"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp" />
+
+    </RelativeLayout>
+
+
+
+    <RelativeLayout
+        android:id="@+id/info_extra"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/informacion"
+        android:background="@drawable/card_background_bottom"
+        android:elevation="1dp"
+        android:padding="16dp"
+        android:layout_marginTop="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/age_icon"
+                    app:tint="#8a8d94" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="22 años"
+                    android:textColor="@android:color/black"
+                    android:textSize="17sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/user_icon"
+                    app:tint="#8a8d94"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="admin"
+                    android:textColor="@android:color/black"
+                    android:textSize="17sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/foto_perfil"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="150dp"
+        android:elevation="2dp">
+
+        <ImageView
+            android:id="@+id/id_perfil"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginStart="25dp"
+            android:background="@drawable/circular_background"
+            android:src="@drawable/ic_icon_profile" />
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/logout_button"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/custom_button_logout"
+        android:text="Cerrar Sesión"
+        android:textColor="@android:color/white"
+        android:drawableStart="@drawable/ic_logout"
+        android:drawablePadding="8dp"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp" />
+
+</RelativeLayout>

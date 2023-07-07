@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="BottomNavigationViewStyle" parent="Widget.Design.BottomNavigationView">
+        <item name="android:background">@color/white</item>
+        <item name="itemIconTint">@color/bottom_nav_item_color</item>
+        <item name="itemTextColor">@color/bottom_nav_item_color</item>
+    </style>
+    <style name="StyledListView" parent="android:Widget.ListView">
+        <item name="android:overScrollMode">always</item>
+        <item name="android:scrollbarThumbVertical">@color/colorOverscroll</item>
+    </style>
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+    </style>
+
+    <style name="cortinaShape">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeBottomLeft">75dp</item>
+        <item name="cornerSizeBottomRight">75dp</item>
+    </style>
+
+</resources>
