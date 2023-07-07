@@ -31,7 +31,10 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/login_icon"
             android:text="Registrar Usuario"
-            android:textSize="44sp"
+            android:imeOptions="actionDone"
+            android:singleLine="true"
+            android:maxLines="1"
+            android:textSize="33sp"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="24dp"
             android:fontFamily="@font/signika_bold"
@@ -43,6 +46,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Nombre"
+            android:imeOptions="actionDone"
+            android:singleLine="true"
+            android:maxLines="1"
             android:layout_below="@id/title"
             android:layout_marginTop="32dp"
             android:drawableStart="@drawable/user_icon"
@@ -69,6 +75,9 @@
             android:layout_height="wrap_content"
             android:hint="Ocupación"
             android:layout_below="@id/age"
+            android:imeOptions="actionDone"
+            android:singleLine="true"
+            android:maxLines="1"
             android:layout_marginTop="16dp"
             android:drawableStart="@drawable/occupation_icon"
             android:drawablePadding="12dp"
@@ -80,6 +89,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Usuario"
+            android:imeOptions="actionDone"
+            android:singleLine="true"
+            android:maxLines="1"
             android:layout_below="@id/occupation"
             android:layout_marginTop="16dp"
             android:drawableStart="@drawable/user_icon"
@@ -109,7 +121,8 @@
             android:layout_below="@id/password"
             android:layout_marginTop="32dp"
             android:background="@drawable/button_background"
-            android:textColor="#FFFFFF"/>
+            android:textColor="#FFFFFF"
+            android:layout_marginBottom="30dp"/>
 
     </RelativeLayout>
 

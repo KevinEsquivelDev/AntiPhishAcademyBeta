@@ -3,7 +3,11 @@ package com.auroraguatemala.antiphishacademy.login;
 import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
@@ -26,6 +30,9 @@ public class LoginFragment extends Fragment {
 
     private Button registerButton;
     private MainActivity mainActivity;
+
+    private boolean isPasswordVisible = false;
+
 
     @Override
     public void onAttach(@NonNull Context context) {
@@ -53,6 +60,31 @@ public class LoginFragment extends Fragment {
         usernameEditText = view.findViewById(R.id.username);
         passwordEditText = view.findViewById(R.id.password);
         loginButton = view.findViewById(R.id.login);
+
+        usernameEditText.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if (keyCode == KeyEvent.KEYCODE_ENTER) {
+                    return true; // Consumes the event and prevents further action
+                }
+                return false;
+            }
+        });
+
+        passwordEditText.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                final int DRAWABLE_END = 2;
+                if (event.getAction() == MotionEvent.ACTION_UP) {
+                    if (event.getRawX() >= (passwordEditText.getRight() - passwordEditText.getCompoundDrawables()[DRAWABLE_END].getBounds().width())) {
+                        togglePasswordVisibility();
+                        return true;
+                    }
+                }
+                return false;
+            }
+        });
+
 
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,4 +116,18 @@ public class LoginFragment extends Fragment {
 
         return view;
     }
+
+    private void togglePasswordVisibility() {
+        if (isPasswordVisible) {
+            // Si la contraseña es visible, ocultarla
+            passwordEditText.setTransformationMethod(PasswordTransformationMethod.getInstance());
+            passwordEditText.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, R.drawable.ic_eye_open, 0);
+        } else {
+            // Si la contraseña está oculta, mostrarla
+            passwordEditText.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+            passwordEditText.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, R.drawable.ic_eye_close, 0);
+        }
+        isPasswordVisible = !isPasswordVisible;
+    }
+
 }

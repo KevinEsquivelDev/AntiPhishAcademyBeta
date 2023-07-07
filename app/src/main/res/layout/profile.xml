@@ -30,7 +30,7 @@
     <RelativeLayout
         android:id="@+id/informacion"
         android:layout_width="match_parent"
-        android:layout_height="190dp"
+        android:layout_height="wrap_content"
         android:layout_below="@id/id_portada"
         android:background="@drawable/card_background"
         android:elevation="1dp">
@@ -65,6 +65,7 @@
             android:layout_below="@id/descripcion_text"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
             android:background="@drawable/custom_button"
             android:text="Editar perfil"
             android:textColor="@android:color/white"
