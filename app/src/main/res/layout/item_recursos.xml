@@ -37,20 +37,21 @@
             android:textColor="@android:color/black"
             android:textStyle="bold" />
 
+
         <Button
             android:id="@+id/boton_ingresar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/titulo"
             android:layout_centerInParent="true"
-            android:layout_marginTop="8dp"
-            android:backgroundTint="@color/primary_color_recursos"
-            android:elevation="4dp"
-            android:stateListAnimator="@animator/lift_on_touch"
-            android:text="Ingresar"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"
             android:background="@drawable/custom_button"
-            android:textColor="@color/white"
-            android:textSize="14sp" />
+            android:backgroundTint="@color/primary_color_recursos"
+            android:padding="15dp"
+            android:text="Ver contenido"
+            android:textColor="@color/white" />
 
     </RelativeLayout>
 </androidx.cardview.widget.CardView>

@@ -14,6 +14,7 @@ import android.widget.LinearLayout;
 
 import com.auroraguatemala.antiphishacademy.R;
 import com.auroraguatemala.antiphishacademy.profile.ProfileFragment;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class EstadisticasFragment extends Fragment {
 
@@ -34,6 +35,10 @@ public class EstadisticasFragment extends Fragment {
             window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
             window.setStatusBarColor(getResources().getColor(R.color.primary_color_estadisitica));
         }
+
+        // Mostrar el BottomNavigationView
+        BottomNavigationView bottomNavigationView = requireActivity().findViewById(R.id.bottom_navigation);
+        bottomNavigationView.setVisibility(View.VISIBLE);
 
         Button profileIcon = rootView.findViewById(R.id.profile_icon);
         profileIcon.setOnClickListener(new View.OnClickListener() {

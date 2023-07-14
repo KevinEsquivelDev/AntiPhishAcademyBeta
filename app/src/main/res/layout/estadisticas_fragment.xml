@@ -30,7 +30,7 @@
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:layout_marginEnd="10dp"
-            android:src="@drawable/ic_web"/>
+            android:src="@drawable/ic_estadisticas"/>
 
         <TextView
             android:id="@+id/title"
@@ -88,6 +88,14 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:padding="16dp">
+
+                    <ImageView
+                        android:id="@+id/icono"
+                        android:layout_width="72dp"
+                        android:layout_height="72dp"
+                        android:src="@drawable/statistics_img_1"
+                        android:contentDescription="title"
+                        android:layout_gravity="center_horizontal"/>
 
                     <TextView
                         android:layout_width="match_parent"
@@ -151,7 +159,8 @@
                         android:background="@drawable/custom_button"
                         android:backgroundTint="@color/primary_color_estadisitica"
                         android:textColor="@color/white"
-                        android:padding="5dp"/>
+                        android:padding="15dp"/>
+
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -170,6 +179,15 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:padding="16dp">
+
+                    <ImageView
+                        android:id="@+id/icono2"
+                        android:layout_width="72dp"
+                        android:layout_height="72dp"
+                        android:src="@drawable/statistics_img_2"
+                        android:contentDescription="title"
+                        android:layout_gravity="center_horizontal"/>
+
 
                     <TextView
                         android:layout_width="match_parent"
@@ -233,7 +251,7 @@
                         android:background="@drawable/custom_button"
                         android:backgroundTint="@color/primary_color_estadisitica"
                         android:textColor="@color/white"
-                        android:padding="5dp" />
+                        android:padding="15dp"/>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -252,6 +270,15 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:padding="16dp">
+
+                    <ImageView
+                        android:id="@+id/icono3"
+                        android:layout_width="72dp"
+                        android:layout_height="72dp"
+                        android:src="@drawable/statistics_img_3"
+                        android:contentDescription="title"
+                        android:layout_gravity="center_horizontal"/>
+
 
                     <TextView
                         android:layout_width="match_parent"
@@ -316,7 +343,7 @@
                         android:background="@drawable/custom_button"
                         android:backgroundTint="@color/primary_color_estadisitica"
                         android:textColor="@color/white"
-                        android:padding="5dp" />
+                        android:padding="15dp"/>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -335,6 +362,15 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:padding="16dp">
+
+                    <ImageView
+                        android:id="@+id/icono4"
+                        android:layout_width="72dp"
+                        android:layout_height="72dp"
+                        android:src="@drawable/statistics_img_4"
+                        android:contentDescription="title"
+                        android:layout_gravity="center_horizontal"/>
+
 
                     <TextView
                         android:layout_width="match_parent"
@@ -399,7 +435,7 @@
                         android:background="@drawable/custom_button"
                         android:backgroundTint="@color/primary_color_estadisitica"
                         android:textColor="@color/white"
-                        android:padding="5dp" />
+                        android:padding="15dp"/>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -418,6 +454,15 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:padding="16dp">
+
+                    <ImageView
+                        android:id="@+id/icono5"
+                        android:layout_width="72dp"
+                        android:layout_height="72dp"
+                        android:src="@drawable/statistics_img_5"
+                        android:contentDescription="title"
+                        android:layout_gravity="center_horizontal"/>
+
 
                     <TextView
                         android:layout_width="match_parent"
@@ -481,7 +526,7 @@
                         android:background="@drawable/custom_button"
                         android:backgroundTint="@color/primary_color_estadisitica"
                         android:textColor="@color/white"
-                        android:padding="5dp" />
+                        android:padding="15dp"/>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -500,6 +545,14 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:padding="16dp">
+
+                    <ImageView
+                        android:id="@+id/icono6"
+                        android:layout_width="72dp"
+                        android:layout_height="72dp"
+                        android:src="@drawable/statistics_img_6"
+                        android:contentDescription="title"
+                        android:layout_gravity="center_horizontal"/>
 
                     <TextView
                         android:layout_width="match_parent"
@@ -555,7 +608,7 @@
                         android:background="@drawable/custom_button"
                         android:backgroundTint="@color/primary_color_estadisitica"
                         android:textColor="@color/white"
-                        android:padding="5dp" />
+                        android:padding="15dp"/>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -574,6 +627,15 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:padding="16dp">
+
+                    <ImageView
+                        android:id="@+id/icono7"
+                        android:layout_width="72dp"
+                        android:layout_height="72dp"
+                        android:src="@drawable/statistics_img_7"
+                        android:contentDescription="title"
+                        android:layout_gravity="center_horizontal"/>
+
 
                     <TextView
                         android:layout_width="match_parent"
@@ -638,7 +700,7 @@ pueden cometer mediante este medio. Es crucial que las personas estén informada
                         android:background="@drawable/custom_button"
                         android:backgroundTint="@color/primary_color_estadisitica"
                         android:textColor="@color/white"
-                        android:padding="5dp" />
+                        android:padding="15dp"/>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
             <View

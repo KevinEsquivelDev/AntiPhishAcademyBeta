@@ -1,16 +1,22 @@
 package com.auroraguatemala.antiphishacademy.profile;
 
+import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Build;
 import android.os.Bundle;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
-
+import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.Button;
-import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.auroraguatemala.antiphishacademy.MainActivity;
 import com.auroraguatemala.antiphishacademy.R;
@@ -53,7 +59,6 @@ public class ProfileFragment extends Fragment {
             }
         });
 
-
         Button logoutProfileLayout = rootView.findViewById(R.id.logout_button);
         logoutProfileLayout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -95,6 +100,31 @@ public class ProfileFragment extends Fragment {
                 bottomNavigationView.setVisibility(View.GONE);
             }
         });
+
+        // Obtener los datos del perfil desde SharedPreferences
+        SharedPreferences sharedPreferences = requireContext().getSharedPreferences("MyPrefsFile", getActivity().MODE_PRIVATE);
+        String name = sharedPreferences.getString("name", "");
+        String age = sharedPreferences.getString("age", "");
+        String job = sharedPreferences.getString("job", "");
+        String backgroundImage = sharedPreferences.getString("backgroundImage", "");
+
+        // Actualizar los TextView correspondientes en el layout
+        TextView nameTextView = rootView.findViewById(R.id.nombre_text);
+        nameTextView.setText(name);
+
+        TextView ageTextView = rootView.findViewById(R.id.edadview);
+        ageTextView.setText(age);
+
+        TextView jobTextView = rootView.findViewById(R.id.descripcion_text);
+        jobTextView.setText(job);
+
+        // Actualizar el fondo de RelativeLayout
+        RelativeLayout idPortadaLayout = rootView.findViewById(R.id.id_portada);
+        if (!backgroundImage.isEmpty()) {
+            byte[] decodedString = Base64.decode(backgroundImage, Base64.DEFAULT);
+            Bitmap bitmap = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
+            idPortadaLayout.setBackground(new BitmapDrawable(getResources(), bitmap));
+        }
 
         return rootView;
     }
