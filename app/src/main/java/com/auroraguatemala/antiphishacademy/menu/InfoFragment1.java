@@ -158,7 +158,7 @@ public class InfoFragment1 extends Fragment {
         private int[] iconos;
 
         public ListViewAdapter(Context context, String[] titulos, int[] iconos) {
-            super(context, R.layout.list_item, titulos);
+            super(context, R.layout.list_item_info, titulos);
             this.titulos = titulos;
             this.iconos = iconos;
         }
@@ -166,7 +166,7 @@ public class InfoFragment1 extends Fragment {
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             LayoutInflater inflater = LayoutInflater.from(getContext());
-            View rowView = inflater.inflate(R.layout.list_item, parent, false);
+            View rowView = inflater.inflate(R.layout.list_item_info, parent, false);
 
             ImageView imageView = rowView.findViewById(R.id.icono);
             TextView textView = rowView.findViewById(R.id.titulo);

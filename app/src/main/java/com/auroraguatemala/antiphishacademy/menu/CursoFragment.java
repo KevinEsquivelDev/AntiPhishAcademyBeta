@@ -1,5 +1,6 @@
 package com.auroraguatemala.antiphishacademy.menu;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -13,9 +14,11 @@ import android.widget.TextView;
 import androidx.fragment.app.Fragment;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.auroraguatemala.antiphishacademy.R;
+import com.auroraguatemala.antiphishacademy.menu.description_Course.etapa_uno_curso;
 import com.auroraguatemala.antiphishacademy.profile.ProfileFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -52,14 +55,24 @@ public class CursoFragment extends Fragment {
         btnContinuar = rootView.findViewById(R.id.btnContinuar);
 
         // Configuración inicial de la barra y el texto de progreso
-        actualizarProgreso(1);
+       // actualizarProgreso(1);
 
         btnContinuar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Implementa lo que quieres que suceda cuando se presiona el botón Continuar
+                etapa_uno_curso fragment = new etapa_uno_curso();
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+                // Asignar la animación personalizada al fragmento de entrada
+                fragmentTransaction.setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left, R.anim.slide_in_left, R.anim.slide_out_right);
+
+                fragmentTransaction.replace(R.id.main_container, fragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
             }
         });
+
 
         Button profileIcon = rootView.findViewById(R.id.profile_icon);
         profileIcon.setOnClickListener(new View.OnClickListener() {

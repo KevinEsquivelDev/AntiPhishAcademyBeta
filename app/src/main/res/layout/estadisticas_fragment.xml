@@ -61,7 +61,8 @@
 
     </androidx.cardview.widget.CardView>
 
-    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    <ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/cortina">
@@ -70,7 +71,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="16dp"
             android:background="@color/white">
 
             <!-- Estadísticas de phishing por objetivos -->
