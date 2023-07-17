@@ -3,11 +3,10 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.auroraguatemala.antiphishacademy">
+
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
-
-
 
     <application
         android:allowBackup="true"
@@ -29,6 +28,10 @@
             </intent-filter>
         </activity>
 
+        <!-- Agrega la declaración de TestModel1Activity aquí -->
+        <activity
+            android:name="com.auroraguatemala.antiphishacademy.menu.description_Course.test.TestModel1Activity"
+            android:label="Test Model 1" />
 
     </application>
 

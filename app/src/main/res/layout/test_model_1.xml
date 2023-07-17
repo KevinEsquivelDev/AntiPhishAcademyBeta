@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="@color/white">
+
+    <ImageView
+        android:id="@+id/gif_image_view"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:adjustViewBounds="true"
+        android:layout_centerHorizontal="true"/>
+
+    <androidx.cardview.widget.CardView
+        android:layout_below="@+id/gif_image_view"
+        android:id="@+id/card_test_progress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:elevation="4dp">
+
+        <TextView
+            android:id="@+id/title_percentage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Test en curso (acá irá el porcentaje avanzado)"
+            android:fontFamily="@font/signika_bold"
+            android:gravity="center"
+            android:textSize="20sp"
+            android:padding="16dp"/>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_question"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:layout_below="@+id/card_test_progress"
+        android:elevation="4dp">
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/title_introduction"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Introducción"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:textSize="20sp"/>
+
+            <TextView
+                android:id="@+id/question_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Aquí irá la pregunta"
+                android:textAlignment="center"
+                android:textSize="18sp"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="10dp"/>
+
+            <CheckBox
+                android:id="@+id/checkbox_option_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Opción 1"
+                android:layout_marginTop="8dp"/>
+
+            <CheckBox
+                android:id="@+id/checkbox_option_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Opción 2"
+                android:layout_marginTop="8dp"/>
+
+            <CheckBox
+                android:id="@+id/checkbox_option_3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Opción 3"
+                android:layout_marginTop="8dp"/>
+
+
+        </LinearLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+    <Button
+        android:id="@+id/button_next_question"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_below="@+id/card_question"
+        android:layout_marginTop="15dp"
+        android:text="Siguiente pregunta"
+        style="?attr/borderlessButtonStyle"
+        android:textColor="@color/white"
+        android:padding="15dp"
+        android:background="@drawable/rounded_button"/>
+
+</RelativeLayout>
