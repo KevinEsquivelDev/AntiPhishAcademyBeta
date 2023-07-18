@@ -1,5 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:color="@color/colorSelected" android:state_checked="true" />
+    <!-- Inicio -->
+    <item android:color="@color/colorSelected" android:state_checked="true" android:id="@+id/navigation_inicio" />
+    <item android:color="@color/colorUnselected" android:id="@+id/navigation_inicio" />
+
+    <!-- Información -->
+    <item android:color="@color/primary_color_information" android:state_checked="true" android:id="@+id/navigation_info" />
+    <item android:color="@color/colorUnselected" android:id="@+id/navigation_info" />
+
+    <!-- Recursos -->
+    <item android:color="@color/primary_color_recursos" android:state_checked="true" android:id="@+id/navigation_recursos" />
+    <item android:color="@color/colorUnselected" android:id="@+id/navigation_recursos" />
+
+    <!-- Curso -->
+    <item android:color="@color/primary_color_curso" android:state_checked="true" android:id="@+id/navigation_curso" />
+    <item android:color="@color/colorUnselected" android:id="@+id/navigation_curso" />
+
+    <!-- Estadisticas -->
+    <item android:color="@color/primary_color_estadisitica" android:state_checked="true" android:id="@+id/navigation_estadisticas" />
+    <item android:color="@color/colorUnselected" android:id="@+id/navigation_estadisticas" />
+
+    <!-- Default -->
     <item android:color="@color/colorUnselected" />
 </selector>
+

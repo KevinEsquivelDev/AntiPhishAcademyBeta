@@ -16,7 +16,9 @@
         android:layout_alignParentBottom="true"
         style="@style/BottomNavigationViewStyle"
         app:menu="@menu/bottom_navigation_menu"
+        app:itemHorizontalTranslationEnabled="false"
         app:labelVisibilityMode="labeled" />
+
 
 
 </RelativeLayout>

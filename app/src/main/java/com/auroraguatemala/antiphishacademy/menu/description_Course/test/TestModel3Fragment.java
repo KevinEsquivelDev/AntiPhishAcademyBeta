@@ -1,13 +1,10 @@
 package com.auroraguatemala.antiphishacademy.menu.description_Course.test;
 
 import static android.content.Context.MODE_PRIVATE;
-
-import static com.auroraguatemala.antiphishacademy.menu.CursoFragment.TEST_APPROVED_KEY;
-import static com.auroraguatemala.antiphishacademy.menu.CursoFragment.TEST_PREFERENCE;
-
+import static com.auroraguatemala.antiphishacademy.menu.CursoFragment.TEST_APPROVED_KEY3;
+import static com.auroraguatemala.antiphishacademy.menu.CursoFragment.TEST_PREFERENCE3;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
@@ -27,20 +24,20 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 
 import com.auroraguatemala.antiphishacademy.R;
-import com.auroraguatemala.antiphishacademy.menu.CursoFragment;
-import com.auroraguatemala.antiphishacademy.menu.description_Course.EtapaUnoCurso;
+import com.auroraguatemala.antiphishacademy.menu.description_Course.EtapaDosCurso;
+import com.auroraguatemala.antiphishacademy.menu.description_Course.EtapaTresCurso;
 import com.bumptech.glide.Glide;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class TestModel1Fragment extends Fragment {
+public class TestModel3Fragment extends Fragment {
     private TextView tvPercentage, tvIntroduction, tvQuestion;
     private CheckBox cbOption1, cbOption2, cbOption3;
     private Button btnNextQuestion;
 
-     // Modelo de datos para las preguntas
+    // Modelo de datos para las preguntas
     private static class Question {
         String question;
         String[] options;
@@ -65,18 +62,18 @@ public class TestModel1Fragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.test_model_1, container, false);
-    // Bloquear la navegación y el botón de retroceso
-            BottomNavigationView bottomNavigationView = requireActivity().findViewById(R.id.bottom_navigation);
-            bottomNavigationView.setVisibility(View.GONE);
-            requireActivity().getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE, WindowManager.LayoutParams.FLAG_SECURE);
+        // Bloquear la navegación y el botón de retroceso
+        BottomNavigationView bottomNavigationView = requireActivity().findViewById(R.id.bottom_navigation);
+        bottomNavigationView.setVisibility(View.GONE);
+        requireActivity().getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE, WindowManager.LayoutParams.FLAG_SECURE);
 
-            requireActivity().getOnBackPressedDispatcher().addCallback(getViewLifecycleOwner(), new OnBackPressedCallback(true) {
-                @Override
-                public void handleOnBackPressed() {
-                    // Mostrar un diálogo para indicar que el test debe ser completado
-                    showTestCompletionDialog();
-                }
-            });
+        requireActivity().getOnBackPressedDispatcher().addCallback(getViewLifecycleOwner(), new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                // Mostrar un diálogo para indicar que el test debe ser completado
+                showTestCompletionDialog();
+            }
+        });
 
 
         tvPercentage = view.findViewById(R.id.title_percentage);
@@ -87,7 +84,7 @@ public class TestModel1Fragment extends Fragment {
         cbOption3 = view.findViewById(R.id.checkbox_option_3);
         btnNextQuestion = view.findViewById(R.id.button_next_question);
 
-        sharedPreferences = requireContext().getSharedPreferences("TestPreference", MODE_PRIVATE);
+        sharedPreferences = requireContext().getSharedPreferences("TestPreference3", MODE_PRIVATE);
         editor = sharedPreferences.edit();
 
         Glide.with(this)
@@ -101,36 +98,57 @@ public class TestModel1Fragment extends Fragment {
         }
 
         // Agregar las preguntas a la lista
-        questions.add(new Question("¿Cuál es el objetivo principal del phishing?",
-                new String[]{"Obtener información confidencial de forma fraudulenta.", "Proteger los datos en línea.", "Mejorar la seguridad cibernética."},
+        questions.add(new Question("¿Qué es el phishing en los teléfonos móviles?",
+                new String[]{"a) Un ataque cibernético que se dirige específicamente a los dispositivos móviles.",
+                        "b) Un método para clonar tarjetas SIM en los teléfonos móviles.",
+                        "c) Una forma de suplantación de identidad en aplicaciones de mensajería."},
                 0));
-        questions.add(new Question("¿Qué es el spear phishing?",
-                new String[]{"Un ataque de phishing dirigido a altos ejecutivos.", "Un ataque de phishing utilizando correos electrónicos genéricos.", "Un ataque de phishing dirigido a individuos al azar."},
+        questions.add(new Question("¿Cuáles son algunas formas comunes de phishing en los teléfonos móviles?",
+                new String[]{"a) Mensajes de texto falsos y llamadas fraudulentas.",
+                        "b) Suplantación de identidad en redes sociales.",
+                        "c) Ataques de denegación de servicio (DDoS) en aplicaciones móviles."},
                 0));
-        questions.add(new Question("¿Cuál es un indicio común de un correo electrónico de phishing?",
-                new String[]{"Enlaces sospechosos o URLs engañosas.", "Contenido bien redactado sin errores.", "Solicitudes legítimas de información personal."},
+        questions.add(new Question("¿Qué tipo de información personal suelen buscar los estafadores en el phishing en los teléfonos móviles?",
+                new String[]{"a) Números de tarjetas de crédito y contraseñas bancarias.",
+                        "b) Direcciones de correo electrónico y nombres de usuario.",
+                        "c) Fotos personales y ubicación geográfica."},
                 0));
-        questions.add(new Question("¿Cuál es una medida recomendada para protegerse del phishing?",
-                new String[]{"Mantener el software de seguridad actualizado.", "Hacer clic en enlaces sospechosos para verificar su autenticidad.", "Proporcionar información personal a través de mensajes de correo electrónico."},
+        questions.add(new Question("¿Qué precaución se puede tomar para protegerse del phishing en los teléfonos móviles?",
+                new String[]{"a) Mantener el software del dispositivo actualizado.",
+                        "b) Compartir información personal solo a través de mensajes de texto.",
+                        "c) Desactivar las notificaciones de mensajes de texto."},
                 0));
-        questions.add(new Question("¿Qué es el Pharming?",
-                new String[]{"La técnica de redirigir el tráfico web a sitios falsos.", "La técnica de engañar a las personas para obtener información personal.", "La técnica de enviar correos electrónicos masivos con fines maliciosos."},
-                0));
-        questions.add(new Question("¿Por qué es importante verificar la autenticidad de los remitentes en los correos electrónicos?",
-                new String[]{"Para evitar hacer clic en enlaces sospechosos.", "Para asegurarse de que la solicitud de información sea legítima.", "Para evitar recibir correos electrónicos de phishing."},
-                1));
-        questions.add(new Question("¿Cuál es una buena práctica para crear contraseñas seguras?",
-                new String[]{"Utilizar la misma contraseña para todas las cuentas en línea.", "Utilizar contraseñas cortas y fáciles de recordar.", "Utilizar contraseñas fuertes y únicas para cada cuenta."},
+        questions.add(new Question("¿Cuál es una señal de advertencia de un posible ataque de phishing en un mensaje de texto?",
+                new String[]{"a) Enlaces sospechosos o incorrectos.",
+                        "b) Tono urgente o amenazante en el mensaje.",
+                        "c) Solicitudes de información personal o financiera."},
                 2));
-        questions.add(new Question("¿Qué es el Vishing?",
-                new String[]{"Un tipo de ataque de phishing dirigido a altos ejecutivos y personas de alto perfil.", "Es un tipo de phishing que se realiza a través de llamadas telefónicas.", "Un tipo de ataque de phishing que utiliza correos electrónicos masivos."},
-                0));
-        questions.add(new Question("¿Cuál es un signo común de un mensaje de phishing?",
-                new String[]{"Amenazas de consecuencias negativas si no se toma acción inmediata.", "Mensajes redactados de manera impecable.", "Solicitudes legítimas de actualización de información."},
-                0));
-        questions.add(new Question("¿Qué es recomendable hacer si se sospecha de un ataque de phishing?",
-                new String[]{"Reportarlo a la empresa o entidad afectada.", "Proporcionar la información solicitada para evitar consecuencias.", "Ignorarlo y eliminarlo sin hacer nada."},
-                0));
+        questions.add(new Question("¿Qué es importante hacer si se recibe un mensaje de texto sospechoso en el teléfono móvil?",
+                new String[]{"a) Responder al mensaje con la información solicitada.",
+                        "b) Eliminar el mensaje de inmediato sin leerlo.",
+                        "c) No hacer clic en ningún enlace y reportar el mensaje como spam."},
+                2));
+        questions.add(new Question("¿Qué es la suplantación de WhatsApp?",
+                new String[]{"a) Clonar la tarjeta SIM de una persona.",
+                        "b) Hacerse pasar por otra persona en la aplicación de mensajería WhatsApp.",
+                        "c) Enviar mensajes de phishing a través de WhatsApp."},
+                1));
+        questions.add(new Question("¿Cuál es el objetivo principal del phishing en los teléfonos móviles?",
+                new String[]{"a) Obtener acceso a la ubicación geográfica del dispositivo.",
+                        "b) Robar información personal y financiera.",
+                        "c) Realizar llamadas telefónicas no autorizadas desde el dispositivo."},
+                1));
+        questions.add(new Question("¿Qué se debe hacer si se sospecha que se ha sido víctima de phishing en el teléfono móvil?",
+                new String[]{"a) Cambiar inmediatamente el número de teléfono.",
+                        "b) Informar a las autoridades policiales.",
+                        "c) Cambiar todas las contraseñas y notificar al proveedor de servicios móviles."},
+                2));
+        questions.add(new Question("¿Cuál es una forma de educar y protegerse contra el phishing en los teléfonos móviles?",
+                new String[]{"a) Mantener la conexión Wi-Fi siempre activada.",
+                        "b) Compartir información personal a través de redes sociales.",
+                        "c) Mantenerse informado sobre las últimas tácticas de phishing y seguir buenas prácticas de seguridad."},
+                2));
+
 
         showQuestion(questions.get(currentQuestion));
 
@@ -182,8 +200,8 @@ public class TestModel1Fragment extends Fragment {
         cbOption3.setChecked(false);
 
         // Actualizar el porcentaje de progreso
-        int percentage = (int) ((currentQuestion / (float) questions.size()) * 100);
-        tvPercentage.setText("Test en curso (" + percentage + "% completado)");
+        int percentage3 = (int) ((currentQuestion / (float) questions.size()) * 100);
+        tvPercentage.setText("Test en curso (" + percentage3 + "% completado)");
 
         // Habilitar o deshabilitar el botón de siguiente pregunta según las selecciones del usuario
         btnNextQuestion.setEnabled(false);
@@ -218,15 +236,29 @@ public class TestModel1Fragment extends Fragment {
         Question current = questions.get(currentQuestion);
         int selectedAnswer = -1;
 
-        if (cbOption1.isChecked()) {
+        if (currentQuestion == 0 && cbOption1.isChecked()) {
             selectedAnswer = 0;
-        } else if (cbOption2.isChecked()) {
-            selectedAnswer = 1;
-        } else if (cbOption3.isChecked()) {
-            selectedAnswer = 2;
+        } else if (currentQuestion == 1 && cbOption1.isChecked()) {
+            selectedAnswer = 0;
+        } else if (currentQuestion == 2 && cbOption1.isChecked()) {
+            selectedAnswer = 0;
+        } else if (currentQuestion == 3 && cbOption1.isChecked()) {
+            selectedAnswer = 0;
+        } else if (currentQuestion == 4 && cbOption3.isChecked()) {
+            selectedAnswer = 0;
+        } else if (currentQuestion == 5 && cbOption3.isChecked()) {
+            selectedAnswer = 0;
+        } else if (currentQuestion == 6 && cbOption2.isChecked()) {
+            selectedAnswer = 0;
+        } else if (currentQuestion == 7 && cbOption2.isChecked()) {
+            selectedAnswer = 0;
+        } else if (currentQuestion == 8 && cbOption3.isChecked()) {
+            selectedAnswer = 0;
+        } else if (currentQuestion == 9 && cbOption3.isChecked()) {
+            selectedAnswer = 0;
         }
 
-        if (selectedAnswer == current.correctAnswer) {
+        if (selectedAnswer == 0) {
             // Respuesta correcta
             correctAnswers++;
             showCorrectDialog();
@@ -235,6 +267,7 @@ public class TestModel1Fragment extends Fragment {
             showIncorrectDialog(current.correctAnswer);
         }
     }
+
 
     // Método para mostrar un diálogo de selección de respuesta
     private void showSelectionDialog() {
@@ -286,10 +319,10 @@ public class TestModel1Fragment extends Fragment {
     // Método para mostrar el resultado final
     private void showResult() {
         // Calcular el porcentaje final
-        int percentage = (int) ((correctAnswers / (float) questions.size()) * 100);
-        String resultMessage = "Test completado: " + percentage + "% de respuestas correctas";
+        int percentage3 = (int) ((correctAnswers / (float) questions.size()) * 100);
+        String resultMessage = "Test completado: " + percentage3 + "% de respuestas correctas";
 
-        editor.putInt("TestPercentage", percentage);
+        editor.putInt("TestPercentage3", percentage3);
         editor.apply();
 
         AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
@@ -301,14 +334,14 @@ public class TestModel1Fragment extends Fragment {
                         dialog.dismiss();
 
                         // Guardar el resultado del test en las preferencias compartidas
-                        SharedPreferences sharedPreferences = requireContext().getSharedPreferences(TEST_PREFERENCE, Context.MODE_PRIVATE);
+                        SharedPreferences sharedPreferences = requireContext().getSharedPreferences(TEST_PREFERENCE3, Context.MODE_PRIVATE);
                         SharedPreferences.Editor editor = sharedPreferences.edit();
 
-                        if (percentage >= 80) {
-                            editor.putBoolean(TEST_APPROVED_KEY, true);
+                        if (percentage3 >= 80) {
+                            editor.putBoolean(TEST_APPROVED_KEY3, true);
                             showApprovalDialog();
                         } else {
-                            editor.putBoolean(TEST_APPROVED_KEY, false);
+                            editor.putBoolean(TEST_APPROVED_KEY3, false);
                             showFailureDialog();
                         }
 
@@ -316,9 +349,9 @@ public class TestModel1Fragment extends Fragment {
 
                         // Enviar el resultado aprobado a CursoFragment
                         if (getActivity() != null) {
-                            SharedPreferences cursoPreferences = getActivity().getSharedPreferences(TEST_PREFERENCE, Context.MODE_PRIVATE);
+                            SharedPreferences cursoPreferences = getActivity().getSharedPreferences(TEST_PREFERENCE3, Context.MODE_PRIVATE);
                             SharedPreferences.Editor cursoEditor = cursoPreferences.edit();
-                            cursoEditor.putBoolean(TEST_APPROVED_KEY, percentage >= 80);
+                            cursoEditor.putBoolean(TEST_APPROVED_KEY3, percentage3 >= 80);
                             cursoEditor.apply();
                         }
                     }
@@ -361,13 +394,13 @@ public class TestModel1Fragment extends Fragment {
                 .show();
     }
 
-    // Método para navegar a EtapaUnoCurso
+    // Método para navegar a EtapaTresCurso
     private void navigateToEtapaUnoCurso() {
         requireActivity().getSupportFragmentManager().popBackStack();
         requireActivity().getSupportFragmentManager().executePendingTransactions();
         requireActivity().getSupportFragmentManager().beginTransaction()
                 .setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_right, R.anim.slide_in_right, R.anim.slide_out_left)
-                .replace(R.id.main_container, new EtapaUnoCurso())
+                .replace(R.id.main_container, new EtapaTresCurso())
                 .commit();
 
 

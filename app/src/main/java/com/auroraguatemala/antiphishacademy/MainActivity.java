@@ -7,6 +7,7 @@ import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -73,25 +74,34 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 Fragment selectedFragment;
+                int itemColorId;
                 switch (getResources().getResourceName(item.getItemId())) {
                     case "com.auroraguatemala.antiphishacademy:id/navigation_inicio":
                         selectedFragment = new InicioFragment();
-                        break;
-                    case "com.auroraguatemala.antiphishacademy:id/navigation_estadisticas":
-                        selectedFragment = new EstadisticasFragment();
-                        break;
-                    case "com.auroraguatemala.antiphishacademy:id/navigation_recursos":
-                        selectedFragment = new RecursosFragment();
-                        break;
-                    case "com.auroraguatemala.antiphishacademy:id/navigation_curso":
-                        selectedFragment = new CursoFragment();
+                        itemColorId = R.color.selector_color_inicio;
                         break;
                     case "com.auroraguatemala.antiphishacademy:id/navigation_info":
                         selectedFragment = new InfoFragment1();
+                        itemColorId = R.color.selector_color_info;
+                        break;
+                    case "com.auroraguatemala.antiphishacademy:id/navigation_recursos":
+                        selectedFragment = new RecursosFragment();
+                        itemColorId = R.color.selector_color_recursos;
+                        break;
+                    case "com.auroraguatemala.antiphishacademy:id/navigation_curso":
+                        selectedFragment = new CursoFragment();
+                        itemColorId = R.color.selector_color_curso;
+                        break;
+                    case "com.auroraguatemala.antiphishacademy:id/navigation_estadisticas":
+                        selectedFragment = new EstadisticasFragment();
+                        itemColorId = R.color.selector_color_estadisticas;
                         break;
                     default:
                         return false;
                 }
+
+                bottomNavigationView.setItemIconTintList(ContextCompat.getColorStateList(getApplicationContext(), itemColorId));
+                bottomNavigationView.setItemTextColor(ContextCompat.getColorStateList(getApplicationContext(), itemColorId));
 
                 getSupportFragmentManager().beginTransaction().replace(R.id.main_container,
                         selectedFragment).commit();

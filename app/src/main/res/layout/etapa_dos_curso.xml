@@ -55,14 +55,14 @@
                             android:layout_width="match_parent"
                             android:layout_height="150dp"
                             android:scaleType="centerCrop"
-                            android:src="@drawable/img_1_course_section_1" />
+                            android:src="@drawable/img_1_course_section_2" />
 
                         <TextView
                             android:id="@+id/title"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="16dp"
-                            android:text="Sección 1"
+                            android:text="Sección 2"
                             android:textColor="@color/black"
                             android:textSize="20sp"
                             android:textStyle="bold" />
@@ -72,7 +72,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="8dp"
-                            android:text="Introducción al Pishing"
+                            android:text="Phishing por correo electrónico"
                             android:textAlignment="center"
                             android:textSize="16sp"
                             android:textColor="@color/black" />
@@ -100,7 +100,7 @@
                         android:id="@+id/test_title"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="TEST 1"
+                        android:text="TEST 2"
                         android:textSize="20sp"
                         android:textStyle="bold"
                         android:textColor="@color/black" />
@@ -115,7 +115,7 @@
                         android:layout_below="@+id/test_title">
 
                         <TextView
-                            android:id="@+id/test_status"
+                            android:id="@+id/test_status2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/test_title"
@@ -139,7 +139,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/linearLayout"
-                        android:text="Introducción al Pishing"
+                        android:text="Phishing por correo electrónico"
                         android:textColor="@color/black"
                         android:textSize="16sp"
                         android:textAlignment="center" />

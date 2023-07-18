@@ -14,6 +14,7 @@ import android.view.Window;
 import android.widget.Button;
 
 import com.auroraguatemala.antiphishacademy.R;
+import com.auroraguatemala.antiphishacademy.menu.notification.NotificationFragment;
 import com.auroraguatemala.antiphishacademy.profile.ProfileFragment;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -171,9 +172,22 @@ public class InicioFragment extends Fragment {
             }
         });
 
+        Button notificationButton = rootView.findViewById(R.id.notification);
+        notificationButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Navegar al NotificationFragment con una transición personalizada
+                Fragment notificationFragment = new NotificationFragment();
+                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
 
+                // Asignar la animación personalizada al fragmento de entrada y salida
+                transaction.setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left, R.anim.slide_in_left, R.anim.slide_out_right);
+
+                transaction.replace(R.id.main_container, notificationFragment);
+                transaction.addToBackStack(null);
+                transaction.commit();
+            }
+        });
         return rootView;
     }
-
-
 }

@@ -120,7 +120,7 @@
                     android:layout_height="20dp"
                     android:layout_weight="4"
                     android:indeterminate="false"
-                    android:max="6"
+                    android:max="5"
                     android:progress="0"
                     android:progressDrawable="@drawable/progress_bar" />
 
@@ -129,7 +129,7 @@
                     android:layout_width="25dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-                    android:text="0/6" />
+                    android:text="0/5" />
             </LinearLayout>
 
             <Button
