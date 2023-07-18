@@ -22,16 +22,21 @@ import com.auroraguatemala.antiphishacademy.menu.description_Course.EtapaUnoCurs
 import com.auroraguatemala.antiphishacademy.profile.ProfileFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-    public class CursoFragment extends Fragment {
+public class CursoFragment extends Fragment {
     private ImageView imageView;
     private ImageView iconoTrofeo;
     private TextView tituloProgreso;
     private TextView textoProgreso;
     private ProgressBar barraProgreso;
     private Button btnContinuar;
-
     public static final String TEST_PREFERENCE = "TestPreference";
     public static final String TEST_APPROVED_KEY = "TestApproved";
+
+    public static final String TEST_PREFERENCE2 = "TestPreference2";
+    public static final String TEST_APPROVED_KEY2 = "TestApproved2";
+
+    private SharedPreferences sharedPreferences;
+    private SharedPreferences sharedPreferences2;
 
     @Nullable
     @Override
@@ -54,20 +59,13 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
         barraProgreso = rootView.findViewById(R.id.barra_progreso);
         btnContinuar = rootView.findViewById(R.id.btnContinuar);
 
-        SharedPreferences sharedPreferences = requireContext().getSharedPreferences(TEST_PREFERENCE, Context.MODE_PRIVATE);
+        sharedPreferences = requireContext().getSharedPreferences(TEST_PREFERENCE, Context.MODE_PRIVATE);
+        sharedPreferences2 = requireContext().getSharedPreferences(TEST_PREFERENCE2, Context.MODE_PRIVATE);
+
         boolean testApproved = sharedPreferences.getBoolean(TEST_APPROVED_KEY, false);
+        boolean testApproved2 = sharedPreferences2.getBoolean(TEST_APPROVED_KEY2, false);
 
-        if (testApproved) {
-            // Actualizar la barra de progreso y el texto de progreso para el test aprobado
-            barraProgreso.setProgress(1);
-            textoProgreso.setText("1/6");
-        } else {
-            // Actualizar la barra de progreso y el texto de progreso para el test no aprobado
-            barraProgreso.setProgress(0);
-            textoProgreso.setText("0/6");
-        }
-
-
+        updateTestStatus(testApproved, testApproved2);
 
         btnContinuar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,7 +77,6 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
                         .addToBackStack(null)
                         .commit();
 
-                SharedPreferences sharedPreferences = requireContext().getSharedPreferences(TEST_PREFERENCE, Context.MODE_PRIVATE);
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 editor.putBoolean(TEST_APPROVED_KEY, true);
                 editor.apply();
@@ -101,4 +98,28 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
         return rootView;
     }
+
+    private void updateTestStatus(boolean testApproved, boolean testApproved2) {
+        int percentage = sharedPreferences.getInt("TestPercentage", 0);
+        int percentage2 = sharedPreferences2.getInt("TestPercentage2", 0);
+
+        if (testApproved && percentage >= 80) {
+            if (testApproved2 && percentage2 >= 80) {
+                barraProgreso.setProgress(2);
+                textoProgreso.setText("2/6");
+            } else {
+                barraProgreso.setProgress(1);
+                textoProgreso.setText("1/6");
+            }
+        } else if (!testApproved && percentage >= 80 && testApproved2 && percentage2 >= 80) {
+            barraProgreso.setProgress(1);
+            textoProgreso.setText("1/6");
+        } else {
+            barraProgreso.setProgress(0);
+            textoProgreso.setText("0/6");
+        }
+    }
+
+
+
 }
