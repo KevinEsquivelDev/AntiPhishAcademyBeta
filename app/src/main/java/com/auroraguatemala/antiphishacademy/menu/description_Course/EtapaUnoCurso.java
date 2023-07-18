@@ -23,7 +23,7 @@ import androidx.fragment.app.Fragment;
 import com.auroraguatemala.antiphishacademy.PdfViewerFragment;
 import com.auroraguatemala.antiphishacademy.R;
 import com.auroraguatemala.antiphishacademy.menu.CursoFragment;
-import com.auroraguatemala.antiphishacademy.menu.description_Course.test.TestModel1Activity;
+import com.auroraguatemala.antiphishacademy.menu.description_Course.test.TestModel1Fragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class EtapaUnoCurso extends Fragment {
@@ -39,7 +39,7 @@ public class EtapaUnoCurso extends Fragment {
         View rootView = inflater.inflate(R.layout.etapa_uno_curso, container, false);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            Window window = getActivity().getWindow();
+            Window window = requireActivity().getWindow();
             window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
             window.setStatusBarColor(getResources().getColor(R.color.primary_color_curso));
         }
@@ -102,13 +102,16 @@ public class EtapaUnoCurso extends Fragment {
                 if (testApproved) {
                     showTestApprovalDialog(percentage);
                 } else {
-                    // Iniciar la actividad TestModel1Activity
-                    Intent intent = new Intent(getActivity(), TestModel1Activity.class);
-                    startActivity(intent);
+                    // Iniciar la actividad TestModel1Fragment
+                    TestModel1Fragment testModel1Fragment = new TestModel1Fragment();
+                    getParentFragmentManager().beginTransaction()
+                            .setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left, R.anim.slide_in_left, R.anim.slide_out_right)
+                            .replace(R.id.main_container, testModel1Fragment)
+                            .addToBackStack(null)
+                            .commit();
                 }
             }
         });
-
 
         btnContinuar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -133,8 +136,13 @@ public class EtapaUnoCurso extends Fragment {
                                 .remove(TEST_APPROVED_KEY)
                                 .remove("TestPercentage")
                                 .apply();
-                        Intent intent = new Intent(getActivity(), TestModel1Activity.class);
-                        startActivity(intent);
+
+                        TestModel1Fragment testModel1Fragment = new TestModel1Fragment();
+                        requireActivity().getSupportFragmentManager().beginTransaction()
+                                .setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left, R.anim.slide_in_left, R.anim.slide_out_right)
+                                .replace(R.id.main_container, testModel1Fragment)
+                                .addToBackStack(null)
+                                .commit();
                     }
                 })
                 .setNegativeButton("Salir", new DialogInterface.OnClickListener() {
@@ -146,6 +154,7 @@ public class EtapaUnoCurso extends Fragment {
                 .setCancelable(false)
                 .show();
     }
+
 
 
     private void updateTestStatus(boolean testApproved) {

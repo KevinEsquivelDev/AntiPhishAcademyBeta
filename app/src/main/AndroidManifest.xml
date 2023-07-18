@@ -28,11 +28,6 @@
             </intent-filter>
         </activity>
 
-        <!-- Agrega la declaración de TestModel1Activity aquí -->
-        <activity
-            android:name="com.auroraguatemala.antiphishacademy.menu.description_Course.test.TestModel1Activity"
-            android:label="Test Model 1" />
-
-    </application>
+     </application>
 
 </manifest>

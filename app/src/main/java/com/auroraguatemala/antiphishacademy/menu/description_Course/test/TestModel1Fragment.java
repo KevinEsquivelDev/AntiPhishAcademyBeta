@@ -1,34 +1,44 @@
 package com.auroraguatemala.antiphishacademy.menu.description_Course.test;
+
+import static android.content.Context.MODE_PRIVATE;
+
+import static com.auroraguatemala.antiphishacademy.menu.CursoFragment.TEST_APPROVED_KEY;
+import static com.auroraguatemala.antiphishacademy.menu.CursoFragment.TEST_PREFERENCE;
+
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.view.Window;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import com.auroraguatemala.antiphishacademy.R;
-import com.auroraguatemala.antiphishacademy.menu.CursoFragment;
 import com.auroraguatemala.antiphishacademy.menu.description_Course.EtapaUnoCurso;
 import com.bumptech.glide.Glide;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class TestModel1Activity extends AppCompatActivity {
+public class TestModel1Fragment extends Fragment {
     private TextView tvPercentage, tvIntroduction, tvQuestion;
     private CheckBox cbOption1, cbOption2, cbOption3;
     private Button btnNextQuestion;
 
     // Modelo de datos para las preguntas
-    private class Question {
+    private static class Question {
         String question;
         String[] options;
         int correctAnswer;
@@ -48,33 +58,31 @@ public class TestModel1Activity extends AppCompatActivity {
     private SharedPreferences sharedPreferences;
     private SharedPreferences.Editor editor;
 
+    @Nullable
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.test_model_1);
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.test_model_1, container, false);
 
-        tvPercentage = findViewById(R.id.title_percentage);
-        tvIntroduction = findViewById(R.id.title_introduction);
-        tvQuestion = findViewById(R.id.question_title);
-        cbOption1 = findViewById(R.id.checkbox_option_1);
-        cbOption2 = findViewById(R.id.checkbox_option_2);
-        cbOption3 = findViewById(R.id.checkbox_option_3);
-        btnNextQuestion = findViewById(R.id.button_next_question);
+        tvPercentage = view.findViewById(R.id.title_percentage);
+        tvIntroduction = view.findViewById(R.id.title_introduction);
+        tvQuestion = view.findViewById(R.id.question_title);
+        cbOption1 = view.findViewById(R.id.checkbox_option_1);
+        cbOption2 = view.findViewById(R.id.checkbox_option_2);
+        cbOption3 = view.findViewById(R.id.checkbox_option_3);
+        btnNextQuestion = view.findViewById(R.id.button_next_question);
 
-        sharedPreferences = getSharedPreferences("TestPreference", MODE_PRIVATE);
+        sharedPreferences = requireContext().getSharedPreferences("TestPreference", MODE_PRIVATE);
         editor = sharedPreferences.edit();
 
         Glide.with(this)
                 .asGif()
                 .load(R.drawable.my_gif_quiz)
-                .into((ImageView) findViewById(R.id.gif_image_view));
+                .into((ImageView) view.findViewById(R.id.gif_image_view));
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            Window window = this.getWindow();
-            window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
-            window.setStatusBarColor(getResources().getColor(R.color.primary_color_curso));
+            requireActivity().getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
+            requireActivity().getWindow().setStatusBarColor(getResources().getColor(R.color.primary_color_curso));
         }
-
 
         // Agregar las preguntas a la lista
         questions.add(new Question("¿Cuál es el objetivo principal del phishing?",
@@ -127,6 +135,8 @@ public class TestModel1Activity extends AppCompatActivity {
                 }
             }
         });
+
+        return view;
     }
 
     // Método para mostrar una pregunta y sus opciones de respuesta
@@ -198,7 +208,7 @@ public class TestModel1Activity extends AppCompatActivity {
 
     // Método para mostrar un diálogo de selección de respuesta
     private void showSelectionDialog() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
         builder.setTitle("Respuesta no seleccionada")
                 .setMessage("Debes seleccionar al menos una respuesta.")
                 .setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
@@ -213,7 +223,7 @@ public class TestModel1Activity extends AppCompatActivity {
 
     // Método para mostrar un diálogo de respuesta correcta
     private void showCorrectDialog() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
         builder.setTitle("¡Respuesta correcta!")
                 .setMessage("¡Has seleccionado la respuesta correcta!")
                 .setPositiveButton("Continuar", new DialogInterface.OnClickListener() {
@@ -230,7 +240,7 @@ public class TestModel1Activity extends AppCompatActivity {
     private void showIncorrectDialog(int correctAnswer) {
         String correctOption = questions.get(currentQuestion).options[correctAnswer];
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
         builder.setTitle("Respuesta incorrecta")
                 .setMessage("La respuesta correcta es: " + correctOption)
                 .setPositiveButton("Continuar", new DialogInterface.OnClickListener() {
@@ -252,7 +262,7 @@ public class TestModel1Activity extends AppCompatActivity {
         editor.putInt("TestPercentage", percentage);
         editor.apply();
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
         builder.setTitle("Resultado")
                 .setMessage(resultMessage)
                 .setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
@@ -263,6 +273,19 @@ public class TestModel1Activity extends AppCompatActivity {
                         if (percentage >= 80) {
                             editor.putBoolean("TestApproved", true);
                             editor.apply();
+                            SharedPreferences sharedPreferences = requireContext().getSharedPreferences(TEST_PREFERENCE, Context.MODE_PRIVATE);
+                            SharedPreferences.Editor editor = sharedPreferences.edit();
+                            editor.putBoolean(TEST_APPROVED_KEY, true);
+                            editor.apply();
+
+                            // Enviar el resultado aprobado a CursoFragment
+                            if (getActivity() != null) {
+                                SharedPreferences cursoPreferences = getActivity().getSharedPreferences(TEST_PREFERENCE, Context.MODE_PRIVATE);
+                                SharedPreferences.Editor cursoEditor = cursoPreferences.edit();
+                                cursoEditor.putBoolean(TEST_APPROVED_KEY, true);
+                                cursoEditor.apply();
+                            }
+
                             showApprovalDialog();
                         } else {
                             editor.putBoolean("TestApproved", false);
@@ -277,7 +300,7 @@ public class TestModel1Activity extends AppCompatActivity {
 
     // Método para mostrar un diálogo de aprobación
     private void showApprovalDialog() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
         builder.setTitle("¡Aprobado!")
                 .setMessage("¡Has aprobado el test!")
                 .setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
@@ -293,7 +316,7 @@ public class TestModel1Activity extends AppCompatActivity {
 
     // Método para mostrar un diálogo de no aprobación
     private void showFailureDialog() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
         builder.setTitle("No aprobado")
                 .setMessage("No has alcanzado el 80% de respuestas correctas. Vuelve a intentarlo.")
                 .setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
@@ -308,10 +331,18 @@ public class TestModel1Activity extends AppCompatActivity {
 
     // Método para navegar a EtapaUnoCurso
     private void navigateToEtapaUnoCurso() {
-        Intent intent = new Intent(this, EtapaUnoCurso.class);
-        startActivity(intent);
-        finish();
+        requireActivity().getSupportFragmentManager().popBackStack();
+        requireActivity().getSupportFragmentManager().executePendingTransactions();
+        requireActivity().getSupportFragmentManager().beginTransaction()
+                .setCustomAnimations(R.anim.slide_in_left, R.anim.slide_out_right, R.anim.slide_in_right, R.anim.slide_out_left)
+                .replace(R.id.main_container, new EtapaUnoCurso())
+                .commit();
 
+
+        BottomNavigationView bottomNavigationView = requireActivity().findViewById(R.id.bottom_navigation);
+        bottomNavigationView.setVisibility(View.GONE);
     }
+
+
 
 }
