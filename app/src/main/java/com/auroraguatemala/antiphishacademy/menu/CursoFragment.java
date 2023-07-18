@@ -58,10 +58,15 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
         boolean testApproved = sharedPreferences.getBoolean(TEST_APPROVED_KEY, false);
 
         if (testApproved) {
-            // Actualizar la barra de progreso y el texto de progreso
+            // Actualizar la barra de progreso y el texto de progreso para el test aprobado
             barraProgreso.setProgress(1);
             textoProgreso.setText("1/6");
+        } else {
+            // Actualizar la barra de progreso y el texto de progreso para el test no aprobado
+            barraProgreso.setProgress(0);
+            textoProgreso.setText("0/6");
         }
+
 
 
         btnContinuar.setOnClickListener(new View.OnClickListener() {

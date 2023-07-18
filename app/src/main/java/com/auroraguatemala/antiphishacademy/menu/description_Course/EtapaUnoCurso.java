@@ -99,7 +99,7 @@ public class EtapaUnoCurso extends Fragment {
                 boolean testApproved = sharedPreferences.getBoolean(TEST_APPROVED_KEY, false);
                 int percentage = sharedPreferences.getInt("TestPercentage", 0);
 
-                if (testApproved) {
+                if (testApproved && percentage >= 80) {
                     showTestApprovalDialog(percentage);
                 } else {
                     // Iniciar la actividad TestModel1Fragment
@@ -112,6 +112,9 @@ public class EtapaUnoCurso extends Fragment {
                 }
             }
         });
+
+
+
 
         btnContinuar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -160,9 +163,14 @@ public class EtapaUnoCurso extends Fragment {
     private void updateTestStatus(boolean testApproved) {
         if (testApproved) {
             int percentage = sharedPreferences.getInt("TestPercentage", 0);
-            testStatus.setText("Se aprobó el Test 1 con " + percentage + "%");
+            if (percentage >= 80) {
+                testStatus.setText("Se aprobó el Test 1 con " + percentage + "%");
+            } else {
+                testStatus.setText("No se aprobó el Test 1");
+            }
         } else {
             testStatus.setText("Aún no aprobado");
         }
     }
+
 }

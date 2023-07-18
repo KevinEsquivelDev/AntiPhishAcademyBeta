@@ -323,6 +323,7 @@ public class TestModel1Fragment extends Fragment {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.dismiss();
+                        navigateToEtapaUnoCurso();
                     }
                 })
                 .setCancelable(false)
@@ -343,6 +344,23 @@ public class TestModel1Fragment extends Fragment {
         bottomNavigationView.setVisibility(View.GONE);
     }
 
+    @Override
+    public void onPause() {
+        super.onPause();
 
+        // Check if the test has been completed
+        if (currentQuestion < questions.size() - 1) {
+            // Test was not completed, set final test percentage to 0%
+            int finalPercentage = 0;
+            editor.putInt("TestPercentage", finalPercentage);
+            editor.apply();
+
+            // Send the information to CursoFragment that the test was not approved
+            SharedPreferences sharedPreferences = requireContext().getSharedPreferences(TEST_PREFERENCE, Context.MODE_PRIVATE);
+            SharedPreferences.Editor cursoEditor = sharedPreferences.edit();
+            cursoEditor.putBoolean(TEST_APPROVED_KEY, false);
+            cursoEditor.apply();
+        }
+    }
 
 }
