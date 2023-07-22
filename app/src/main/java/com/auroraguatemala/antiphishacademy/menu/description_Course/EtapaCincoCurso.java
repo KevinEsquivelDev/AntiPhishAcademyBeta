@@ -21,6 +21,7 @@ import androidx.fragment.app.Fragment;
 
 import com.auroraguatemala.antiphishacademy.PdfViewerFragment;
 import com.auroraguatemala.antiphishacademy.R;
+import com.auroraguatemala.antiphishacademy.menu.CursoFragment;
 import com.auroraguatemala.antiphishacademy.menu.description_Course.test.TestModel1Fragment;
 import com.auroraguatemala.antiphishacademy.menu.description_Course.test.TestModel4Fragment;
 import com.auroraguatemala.antiphishacademy.menu.description_Course.test.TestModel5Fragment;
@@ -33,6 +34,8 @@ public class EtapaCincoCurso extends Fragment {
 
     private TextView testStatus;
     private SharedPreferences sharedPreferences;
+
+    private Button btnContinuar;
 
     @Nullable
     @Override
@@ -116,26 +119,18 @@ public class EtapaCincoCurso extends Fragment {
 
 
 
-        /*btnContinuar.setOnClickListener(new View.OnClickListener() {
+        btnContinuar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                boolean testApproved = sharedPreferences.getBoolean(TEST_APPROVED_KEY5, false);
-                int percentage5 = sharedPreferences.getInt("TestPercentage5", 0);
-
-                if (testApproved && percentage5 >= 80) {
-                    // Navigate to EtapaDosCurso
-                    EtapaCincoCurso etapaDosCurso = new EtapaCincoCurso();
-                    requireActivity().getSupportFragmentManager().beginTransaction()
-                            .setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left, R.anim.slide_in_left, R.anim.slide_out_right)
-                            .replace(R.id.main_container, etapaDosCurso)
-                            .addToBackStack(null)
-                            .commit();
-                } else {
-                    // Show dialog to complete Test 1 first
-                    showTestCompletionDialog();
-                }
+                // Navigate to EtapaDosCurso
+                CursoFragment CursoFragment = new CursoFragment();
+                requireActivity().getSupportFragmentManager().beginTransaction()
+                        .setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left, R.anim.slide_in_left, R.anim.slide_out_right)
+                        .replace(R.id.main_container, CursoFragment)
+                        .addToBackStack(null)
+                        .commit();
             }
-        });*/
+        });
 
         return rootView;
     }

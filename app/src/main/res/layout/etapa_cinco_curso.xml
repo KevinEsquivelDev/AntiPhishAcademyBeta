@@ -155,16 +155,16 @@
                 android:layout_marginTop="25dp"
                 android:gravity="center_horizontal">
 
-               <!-- <Button
+               <Button
                     android:id="@+id/btnContinuar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Obtener Certificado"
+                    android:text="Regresar al inicio"
                     android:background="@drawable/custom_button"
                     android:backgroundTint="@color/primary_color_curso"
                     android:textColor="@color/white"
                     android:padding="15dp" />
-                -->
+
             </LinearLayout>
 
         </LinearLayout>
