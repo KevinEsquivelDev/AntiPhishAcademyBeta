@@ -48,6 +48,9 @@ public class EtapaCincoCurso extends Fragment {
             window.setStatusBarColor(getResources().getColor(R.color.primary_color_curso));
         }
 
+        //Button btnContinuar = rootView.findViewById(R.id.btnContinuar);
+        btnContinuar = rootView.findViewById(R.id.btnContinuar); // Quita los dobles comentarios
+
         // Mostrar el BottomNavigationView
         BottomNavigationView bottomNavigationView = requireActivity().findViewById(R.id.bottom_navigation);
         bottomNavigationView.setVisibility(View.GONE);
