@@ -1,11 +1,15 @@
 package com.auroraguatemala.antiphishacademy;
 
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.view.MenuItem;
 import android.view.View;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
@@ -45,10 +49,40 @@ public class MainActivity extends AppCompatActivity {
                 setupBottomNavigation();
             } else {
                 showFragment(new LoginFragment());
+                showNotificationPermissionDialog();
                 bottomNavigationView.setVisibility(View.GONE);
             }
         }
+
+
     }
+
+    private void showNotificationPermissionDialog() {
+        new AlertDialog.Builder(this)
+                .setTitle("Permisos de Notificaciones")
+                .setMessage("Para recibir notificaciones, necesitamos que nos des permisos de notificaciones. Haz clic en 'Ir a ajustes' para otorgar los permisos.")
+                .setPositiveButton("Ir a ajustes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        openNotificationSettings();
+                    }
+                })
+                .setCancelable(false)
+                .show();
+    }
+
+    private void openNotificationSettings() {
+        // Abrir la configuración de notificaciones para la aplicación
+        Intent intent = new Intent(Settings.ACTION_APP_NOTIFICATION_SETTINGS);
+        intent.putExtra(Settings.EXTRA_APP_PACKAGE, getPackageName());
+        startActivity(intent);
+
+        // Marcar que ya se mostró el diálogo
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putBoolean("isFirstTime", false);
+        editor.apply();
+    }
+
 
     public void loginSuccessful() {
         isLoggedIn = true;

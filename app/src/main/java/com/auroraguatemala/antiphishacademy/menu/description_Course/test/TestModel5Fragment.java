@@ -4,8 +4,11 @@ import static android.content.Context.MODE_PRIVATE;
 import static com.auroraguatemala.antiphishacademy.menu.CursoFragment.TEST_APPROVED_KEY5;
 import static com.auroraguatemala.antiphishacademy.menu.CursoFragment.TEST_PREFERENCE5;
 
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
@@ -22,16 +25,20 @@ import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
+import androidx.core.app.NotificationCompat;
 import androidx.fragment.app.Fragment;
 
 import com.auroraguatemala.antiphishacademy.R;
 import com.auroraguatemala.antiphishacademy.menu.description_Course.EtapaCincoCurso;
 import com.auroraguatemala.antiphishacademy.menu.description_Course.EtapaCuatroCurso;
+import com.auroraguatemala.antiphishacademy.menu.notification.NotificationFragment;
 import com.bumptech.glide.Glide;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class TestModel5Fragment extends Fragment {
     private TextView tvPercentage, tvIntroduction, tvQuestion;
@@ -59,14 +66,12 @@ public class TestModel5Fragment extends Fragment {
     private SharedPreferences sharedPreferences;
     private SharedPreferences.Editor editor;
 
+    private static final String CHANNEL_ID = "mi_canal_de_notificacion";
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.test_model_1, container, false);
-        // Bloquear la navegación y el botón de retroceso
-        BottomNavigationView bottomNavigationView = requireActivity().findViewById(R.id.bottom_navigation);
-        bottomNavigationView.setVisibility(View.GONE);
-        requireActivity().getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE, WindowManager.LayoutParams.FLAG_SECURE);
 
         requireActivity().getOnBackPressedDispatcher().addCallback(getViewLifecycleOwner(), new OnBackPressedCallback(true) {
             @Override
@@ -346,6 +351,37 @@ public class TestModel5Fragment extends Fragment {
                         }
 
                         editor.apply();
+
+                        // Crear una notificación
+                        NotificationCompat.Builder builder = new NotificationCompat.Builder(requireContext(), CHANNEL_ID)
+                                .setSmallIcon(R.drawable.notification) // Icono de la notificación (asegúrate de tener el recurso drawable "ic_notification")
+                                .setContentTitle("¡Nuevo logro!")
+                                .setContentText("Haz obtenido un nuevo logro")
+                                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
+                                .setAutoCancel(true);
+
+                        // Intent para abrir el fragmento NotificationFragment
+                        Intent notificationIntent = new Intent(requireContext(), NotificationFragment.class);
+                        PendingIntent pendingIntent = PendingIntent.getActivity(requireContext(), 0, notificationIntent, PendingIntent.FLAG_IMMUTABLE | PendingIntent.FLAG_UPDATE_CURRENT);
+                        builder.setContentIntent(pendingIntent);
+
+                        // Mostrar la notificación
+                        NotificationManager notificationManager = (NotificationManager) requireContext().getSystemService(Context.NOTIFICATION_SERVICE);
+                        notificationManager.notify(/*ID_DE_LA_NOTIFICACION*/ 5, builder.build());
+
+                        //Guardar la notificación
+                        SharedPreferences sharedPreferencesN5 = requireContext().getSharedPreferences("NotificationPref", Context.MODE_PRIVATE);
+                        SharedPreferences.Editor notificationEditor = sharedPreferencesN5.edit();
+
+                        // Obtiene el Set actual de notificaciones, si existe, o crea uno nuevo si no.
+                        Set<String> notifications = sharedPreferencesN5.getStringSet("notificationTitle", new HashSet<String>());
+
+                        // Añade la nueva notificación al Set.
+                        notifications.add("¡Felicidades!\nHaz completado el módulo 5 del curso\n \"Ataques informáticos sobre el phishing qué deben conocerse\"");
+
+                        // Almacena el Set actualizado de notificaciones.
+                        notificationEditor.putStringSet("notificationTitle", notifications);
+                        notificationEditor.apply();
 
                         // Enviar el resultado aprobado a CursoFragment
                         if (getActivity() != null) {
