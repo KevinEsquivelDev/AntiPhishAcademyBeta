@@ -18,6 +18,7 @@ import com.auroraguatemala.antiphishacademy.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -60,16 +61,45 @@ public class NotificationFragment extends Fragment {
         listView = rootView.findViewById(R.id.NlistViewRecursos);
         listView.setAdapter(notificationAdapter);
 
-        //Obtener las notificaciones
-        SharedPreferences sharedPreferencesN = requireContext().getSharedPreferences("NotificationPref", Context.MODE_PRIVATE);
-        Set<String> notificationSet = sharedPreferencesN.getStringSet("notificationTitle", new HashSet<String>());
+        //Obtener las notificaciones de los diferentes conjuntos de preferencias compartidas
+        SharedPreferences sharedPreferencesN1 = requireContext().getSharedPreferences("NotificationPref", Context.MODE_PRIVATE);
+        Set<String> notificationSet1 = sharedPreferencesN1.getStringSet("notificationTitle", new HashSet<String>());
 
-        // Añade las notificaciones a la lista y notifica al adaptador sobre los cambios de datos
-        for (String notificationTitle : notificationSet) {
-            notificationList.add(new Notification(notificationTitle));
-        }
+        SharedPreferences sharedPreferencesN2 = requireContext().getSharedPreferences("NotificationPref2", Context.MODE_PRIVATE);
+        Set<String> notificationSet2 = sharedPreferencesN2.getStringSet("notificationTitle", new HashSet<String>());
+
+        SharedPreferences sharedPreferencesN3 = requireContext().getSharedPreferences("NotificationPref3", Context.MODE_PRIVATE);
+        Set<String> notificationSet3 = sharedPreferencesN3.getStringSet("notificationTitle", new HashSet<String>());
+
+        SharedPreferences sharedPreferencesN4 = requireContext().getSharedPreferences("NotificationPref4", Context.MODE_PRIVATE);
+        Set<String> notificationSet4 = sharedPreferencesN4.getStringSet("notificationTitle", new HashSet<String>());
+
+        SharedPreferences sharedPreferencesN5 = requireContext().getSharedPreferences("NotificationPref5", Context.MODE_PRIVATE);
+        Set<String> notificationSet5 = sharedPreferencesN5.getStringSet("notificationTitle", new HashSet<String>());
+
+        // Borramos la lista actual de notificaciones
+        notificationList.clear();
+
+        // Añadimos las notificaciones de cada conjunto a la lista
+        addNotificationsToList(notificationSet1);
+        addNotificationsToList(notificationSet2);
+        addNotificationsToList(notificationSet3);
+        addNotificationsToList(notificationSet4);
+        addNotificationsToList(notificationSet5);
+
+        // Invertimos el orden de la lista para mostrar las notificaciones en orden descendente
+        Collections.reverse(notificationList);
+
+        // Notificamos al adaptador sobre los cambios de datos
         notificationAdapter.notifyDataSetChanged();
 
         return rootView;
+    }
+
+    // Método para añadir notificaciones a la lista
+    private void addNotificationsToList(Set<String> notificationSet) {
+        for (String notificationTitle : notificationSet) {
+            notificationList.add(new Notification(notificationTitle));
+        }
     }
 }

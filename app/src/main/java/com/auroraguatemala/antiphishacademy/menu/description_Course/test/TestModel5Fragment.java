@@ -370,7 +370,7 @@ public class TestModel5Fragment extends Fragment {
                         notificationManager.notify(/*ID_DE_LA_NOTIFICACION*/ 5, builder.build());
 
                         //Guardar la notificación
-                        SharedPreferences sharedPreferencesN5 = requireContext().getSharedPreferences("NotificationPref", Context.MODE_PRIVATE);
+                        SharedPreferences sharedPreferencesN5 = requireContext().getSharedPreferences("NotificationPref5", Context.MODE_PRIVATE);
                         SharedPreferences.Editor notificationEditor = sharedPreferencesN5.edit();
 
                         // Obtiene el Set actual de notificaciones, si existe, o crea uno nuevo si no.
